@@ -25,11 +25,11 @@ repositories {
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings loom.officialMojangMappings()
+    minecraft "com.mojang:minecraft:1.21.1"
+    mappings "net.fabricmc:yarn:1.21.1+build.1:v2"
     modImplementation "net.fabricmc:fabric-loader:${loader_version}"
-    // Explicit Fabric API version that supports 1.21.x
-    modImplementation "net.fabricmc.fabric-api:fabric-api:0.102.0+1.21"
+    // Explicit Fabric API version that supports 1.21.1
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.102.0+1.21.1"
 }
 
 loom {

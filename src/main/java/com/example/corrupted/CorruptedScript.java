@@ -2,42 +2,26 @@
 package com.example.corrupted;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.TieredItem;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.item.Item;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterials;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 
 public class CorruptedScript implements ModInitializer {
 
-    public static final String MOD_ID = "corrupted";
-
-    public static Item CURSED_SWORD;
-    public static EntityType<TheCenterEntity> CENTER;
+    public static final Item CURSED_SWORD = Registry.register(
+        Registries.ITEM,
+        Identifier.of("corrupted", "cursed_sword"),
+        new SwordItem(
+            ToolMaterials.IRON,
+            new Item.Settings()
+        )
+    );
 
     @Override
     public void onInitialize() {
-
-        // Item
-        CURSED_SWORD = BuiltInRegistries.ITEM.register(
-                new ResourceLocation(MOD_ID, "cursed_sword"),
-                new TieredItem(
-                        Tiers.IRON,
-                        new FabricItemSettings()
-                )
-        );
-
-        // Entity
-        CENTER = BuiltInRegistries.ENTITY_TYPE.register(
-                new ResourceLocation(MOD_ID, "the_center"),
-                EntityType.Builder
-                        .of(TheCenterEntity::new, MobCategory.MONSTER)
-                        .sized(0.6F, 1.95F)
-                        .build()
-        );
+        // initialization handled by static registrations
     }
 }

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "corrupted",
+  "version": "1.0.0",
+  "name": "Corrupted Script",
+  "description": "World corruption triggered by a cursed sword.",
+  "authors": [
+    "You"
+  ],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.example.corrupted.CorruptedScript"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "1.21.x"
+  }
+}
