@@ -1,1 +1,12 @@
-rootProject.name = 'corrupted-script'
+pluginManagement {
+    repositories {
+        maven {
+            name = "Fabric"
+            url = "https://maven.fabricmc.net/"
+        }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "just-a-mc-mod-i-m-working-on"
