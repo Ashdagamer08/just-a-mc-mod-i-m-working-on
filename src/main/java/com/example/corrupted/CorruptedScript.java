@@ -2,14 +2,14 @@
 package com.example.corrupted;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.item.Tiers;
 
 public class CorruptedScript implements ModInitializer {
@@ -25,11 +25,9 @@ public class CorruptedScript implements ModInitializer {
         // Item
         CURSED_SWORD = BuiltInRegistries.ITEM.register(
                 new ResourceLocation(MOD_ID, "cursed_sword"),
-                new SwordItem(
+                new TieredItem(
                         Tiers.IRON,
-                        5,
-                        -2.4F,
-                        new Item.Properties()
+                        new FabricItemSettings()
                 )
         );
 
@@ -39,7 +37,7 @@ public class CorruptedScript implements ModInitializer {
                 EntityType.Builder
                         .of(TheCenterEntity::new, MobCategory.MONSTER)
                         .sized(0.6F, 1.95F)
-                        .build("the_center")
+                        .build()
         );
     }
 }
